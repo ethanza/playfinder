@@ -19,7 +19,7 @@ export class SearchFormComponent implements OnInit {
         public router: Router,
         public route: ActivatedRoute,
         // private store: Store<{ slots: ResultData[] }>
-    ) {}
+    ) { }
 
     public pitch_id: number;
     public start_date: string;
@@ -125,7 +125,7 @@ export class SearchFormComponent implements OnInit {
         );
     }
 
-    public onSubmit(form_inputs: FormInputs, isValid: boolean) {
+    public onSubmit(form_inputs: FormInputs, isValid: boolean): void {
         this.setCorrectDates(form_inputs, isValid);
         if (this.correctDates) {
             this.api_params = {
@@ -133,9 +133,11 @@ export class SearchFormComponent implements OnInit {
                 start_date: this.startDateString,
                 end_date: this.endDateString,
             };
-            this.searchService.loadResults(this.api_params);
+            this.searchService.getSpecificSlot(this.api_params);
             // this.store.dispatch({ type: '[Slots] Get Slots', api_params: this.api_params });
             this.setUrl();
+        } else {
+            this.searchService.getAllAvailableSlots(); // if no input, fetch all available slots
         }
     }
 

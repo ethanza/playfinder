@@ -3,13 +3,8 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.4.
 
 ## Comments
-- Once the app was developed, I added an NGRX store and attempted to move the whole app to the store model.
-- I got all the data from the store. However, I ran out of time to create tests so I reverted the app back as otherwise, my tests would fail. I have therefore commented out the Store code but you are able to see how I had it working.
-- I also ran out of time to add a reducer to get a single slot from the store for the search-slot component (I'm also not yet entirely clear how you would do this)
-- If I had more time, I would read up more on NGRX and finish the Store as well as improve the responsive design for mobile screens. Also, I would componetize the app more as a couple of my components are very large files and for reusability it would be good to have UI elements as components. It would also be good to add some E2E tests
-
-
-
+- created new method to get all available slots > 0 if no input is entered
+- updated the method in the search service to retrieve via start and end dates, could make this a find by pitch id (however they are all unique so opted to filter between start and end dates)
 
 
 ## Development server
