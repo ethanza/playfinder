@@ -3,9 +3,9 @@
 
     <div class="table">
         <ul>
+            <li>Slot Id: {{result.id}}</li>
             <li>Start date: {{result.attributes.starts | date}}</li>
             <li>End Date: {{result.attributes.ends | date}}</li>
-            <li>Slot Id: {{result.id}}</li>
             <li>Slot Price: {{result.attributes.price | currency:result.attributes.currency}}</li>
             <li>Slots Available: {{result.attributes.availabilities}}</li>
 
