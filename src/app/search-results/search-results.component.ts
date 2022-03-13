@@ -7,6 +7,7 @@ import {
     HumanizeDuration,
 } from 'humanize-duration-ts';
 import { Observable, Subscription } from 'rxjs';
+import { Store, select } from '@ngrx/store';
 
 @Component({
     selector: 'app-search-results',
@@ -14,7 +15,7 @@ import { Observable, Subscription } from 'rxjs';
     styleUrls: ['./search-results.component.scss'],
 })
 export class SearchResultsComponent implements OnInit {
-    // public resultsNew: ResultData[];
+    public resultsNew: ResultData[];
     public results: Result;
     public page: number = 1;
 
@@ -22,9 +23,9 @@ export class SearchResultsComponent implements OnInit {
 
     constructor(
         public searchService: SearchService,
-        // private store: Store<{ slots: ResultData[] }>
+        private store: Store<{ slots: ResultData[] }>
     ) {
-        // this.results$ = this.store.pipe(select('slots'));
+        this.results$ = this.store.pipe(select('slots'));
     }
 
     public langService: HumanizeDurationLanguage = new HumanizeDurationLanguage();

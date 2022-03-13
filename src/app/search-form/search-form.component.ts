@@ -3,6 +3,7 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as moment from 'moment';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { Store } from '@ngrx/store';
 
 import SearchService from '../services/search.service';
 import { FormInputs, ApiParams, ResultData } from '../models/search.model';
@@ -18,7 +19,7 @@ export class SearchFormComponent implements OnInit {
         public searchService: SearchService,
         public router: Router,
         public route: ActivatedRoute,
-        // private store: Store<{ slots: ResultData[] }>
+        private store: Store<{ slots: ResultData[] }>
     ) { }
 
     public pitch_id: number;
@@ -134,7 +135,7 @@ export class SearchFormComponent implements OnInit {
                 end_date: this.endDateString,
             };
             this.searchService.getSpecificSlot(this.api_params);
-            // this.store.dispatch({ type: '[Slots] Get Slots', api_params: this.api_params });
+            this.store.dispatch({ type: '[Slots] Get Slots', api_params: this.api_params });
             this.setUrl();
         } else {
             this.searchService.getAllAvailableSlots(); // if no input, fetch all available slots
