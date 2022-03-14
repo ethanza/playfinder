@@ -5,6 +5,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Comments
 - created new method to get all available slots > 0 if no input is entered
 - updated the method in the search service to retrieve via start and end dates, could make this a find by pitch id (however they are all unique so opted to filter between start and end dates)
+- Pushed the data into the store
+- reading from the store to display on the single item page
+- Would add a BE api end point to remove the court booking and allow someone to book
 
 
 ## Development server
